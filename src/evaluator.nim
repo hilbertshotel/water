@@ -47,7 +47,7 @@ func evaluate(input: seq[string]): seq[string] =
                 num -= 1
                 break
     
-    exp
+    return exp
 
 
 func evaluateExpression*(input: seq[string]): seq[string] =

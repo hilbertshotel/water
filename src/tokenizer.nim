@@ -15,7 +15,7 @@ func tokenize*(input: string): seq[string] =
             temp.add($c)
             mark = 1
 
-        elif isDigit(c):
+        elif isDigit(c) or c == '.':
             temp.add($c)
 
         elif c in "+-*/()":
