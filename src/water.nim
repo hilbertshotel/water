@@ -2,7 +2,7 @@ import os
 import rdstdin
 
 import msg
-import tokenizer
+import scanner
 import evaluator
 import prettifier
 
@@ -24,7 +24,7 @@ proc on() =
             # tokenize
             var tokens: seq[string]
             try:
-                tokens = tokenizer.tokenize(input)
+                tokens = scanner.tokenize(input)
             except:
                 echo errorInvalid
                 continue
@@ -38,7 +38,10 @@ proc on() =
                 continue
             
             # prettify
-            echo prettifier.prettify(evaluation)
+            try:
+                echo prettifier.prettify(evaluation)
+            except:
+                echo errorInvalid
 
     echo msg.waterOff
 
